@@ -445,23 +445,21 @@ public class FittingInScript : MonoBehaviour
             yield break;
         }
         var parameters = command.ToUpperInvariant().Split(' ');
-        m = Regex.Match(parameters[0], @"^\s*press\s*$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
-        if (!m.Success)
-            yield break;
+        int ix = parameters[0] == "PRESS" ? 1 : 0;
         if (!_gridFlippedUp)
         {
             yield return "sendtochaterror The grid isn't flipped up! Use the 'flip' command.";
             yield break;
         }
         var list = new List<int>();
-        for (int i = 1; i < parameters.Length; i++)
+        for (int i = ix; i < parameters.Length; i++)
         {
             if (parameters[i].Length != 2 && parameters[i].Length != 3)
             {
                 yield return "sendtochaterror " + parameters[i] + " is not a valid button! Press a button with a letter-number coordinate.";
                 yield break;
             }
-            if (!((parameters[i][0] >= 'A') && (parameters[i][0] <= 'Z')))
+            if (!((parameters[i][0] >= 'A') && (parameters[i][0] <= 'J')))
             {
                 yield return "sendtochaterror " + parameters[i] + " is not a valid button! Press a button with a letter-number coordinate.";
                 yield break;
