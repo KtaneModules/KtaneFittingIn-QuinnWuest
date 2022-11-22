@@ -201,6 +201,9 @@ public class FittingInScript : MonoBehaviour
             goto newPiece;
         _piece = new Piece(list.ToArray(), rowList.Count, colList.Count);
         _mainPieceStr = GetStringFromPiece(_piece);
+        var rndColor = Rnd.Range(0, ShapeMats.Length);
+        var hexColors = new string[] { "FF245F", "FF9524", "F0D70C", "72DD1A", "16E5F8", "2779FF", "A052FF", "FF5EE0" };
+        Debug.LogFormat("[Fitting In #{0}] Piece color: {1}", _moduleId, hexColors[rndColor]);
         Debug.LogFormat("[Fitting In #{0}] Piece:", _moduleId);
         var tmpStr = _mainPieceStr.Split('\n').ToArray();
         for (int i = 0; i < tmpStr.Length; i++)
@@ -209,7 +212,6 @@ public class FittingInScript : MonoBehaviour
         var pieceObjArr = new int[6];
         for (int i = 0; i < 6; i++)
             pieceObjArr[i] = convertGrids(_piece.cells[i], _piece.cols, 4);
-        var rndColor = Rnd.Range(0, ShapeMats.Length);
         for (int i = 0; i < 16; i++)
         {
             ShapeObjs[i].GetComponent<MeshRenderer>().material = ShapeMats[rndColor];

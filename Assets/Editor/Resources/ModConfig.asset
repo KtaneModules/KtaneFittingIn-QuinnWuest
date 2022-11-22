@@ -14,12 +14,9 @@ MonoBehaviour:
   id: FittingInModule
   title: Fitting In
   author: Quinn Wuest
-  description: 'Entering Bosnian mode.
-
-
-    Manual by Grunkle Squeaky
-
-    Developed by Quinn Wuest'
+  description: "Entering Bosnian mode.\n\nManual by Grunkle Squeaky\nDeveloped by
+    Quinn Wuest\n\n[url=https://ktane.timwi.de/HTML/Fitting%20In.html]Manual HTML[/url]\r\n[url=https://ktane.timwi.de/PDF/Fitting%20In.pdf]Manual
+    PDF[/url]"
   version: 1.0
   outputFolder: build
   previewImage: {fileID: 2800000, guid: 63eb192766a8b0449be010bda5ed9ad0, type: 3}
